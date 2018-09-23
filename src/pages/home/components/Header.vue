@@ -25,7 +25,7 @@ export default {
   display: flex
   line-height: .86rem
   background: $bgColor
-  color: $fff
+  color: #fff
   .header-left
     width: .64rem
     .back-icon
