@@ -2,7 +2,7 @@
 <div>
   <div class="title">热销推荐</div>
   <ul>
-    <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+    <li class="item border-bottom" v-for="item in list" :key="item.id">
       <img class="item-img" :src="item.imgUrl" alt="">
       <div class="item-info">
         <p class="item-title">{{item.title}}</p>
@@ -17,28 +17,9 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1601/6f/6f4abe06e07ed27d90.water.jpg_200x200_48fb9256.jpg',
-          title: '龙宫大白鲸欢乐世界',
-          desc: '龙宫大白鲸欢乐世界龙宫大白鲸欢乐世界'
-        },
-        {
-          id: '0002',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1803/ea/eaab246d02a74df1a3.img.jpg_200x200_aa258df8.jpg',
-          title: '铁山寺国家森林公园',
-          desc: '铁山寺国家森林公园铁山寺国家森林公园'
-        },
-        {
-          id: '0003',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1408/20/202d2952aff56d1434062cc02b931140.jpg_200x200_d48e8038.jpg',
-          title: '淮安府署',
-          desc: '淮安府署淮安府署'
-        }
-      ]
+  props: {
+    list: {
+      type: Array
     }
   }
 }

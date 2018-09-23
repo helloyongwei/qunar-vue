@@ -1,10 +1,10 @@
 <template>
 <div>
   <home-header :city="city"></home-header>
-  <home-swiper></home-swiper>
-  <home-icons></home-icons>
-  <home-recommend></home-recommend>
-  <home-weekend></home-weekend>
+  <home-swiper :list="swiperList"></home-swiper>
+  <home-icons :list="iconList"></home-icons>
+  <home-recommend :list="recommendList"></home-recommend>
+  <home-weekend :list="weekendList"></home-weekend>
 </div>
 </template>
 
@@ -27,20 +27,28 @@ export default {
   },
   data () {
     return {
-      city: ''
+      city: '',
+      swiperList: [],
+      iconList: [],
+      recommendList: [],
+      weekendList: []
     }
   },
   mounted () {
     this.getHomeInfo()
   },
-  mothods: {
+  methods: {
     getHomeInfo () {
       axios.get('/api/index.json')
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       const data = res.data
-      this.city = data.city
+      this.city = data.data.city
+      this.swiperList = data.data.swiperList
+      this.iconList = data.data.iconList
+      this.recommendList = data.data.recommendList
+      this.weekendList = data.data.weekendList
     }
   }
 }
